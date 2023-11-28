@@ -1,0 +1,29 @@
+<h1 class="m-3">Appartement list</h1>
+
+<div class="row">
+    <br>
+    <div>
+    <button type="button" class="btn btn-success" (click)="displayAddForm()">Add Appartement</button>
+    </div>
+    <app-add-appartement
+    *ngIf="addApp"
+    (addFormEvent)="addAppartement($event)"
+    ></app-add-appartement>
+    <app-appartement
+      class="m-3"
+      *ngFor="let r of appartementsList; let i = index"
+      style="width: 18rem"
+      [app]="r"
+      (deleteEvent)="deleteAppartement($event)"
+      (updateEvent)="updateAppartement($event)"
+    >
+    </app-appartement>
+    <app-update-appartement
+    *ngIf="appart"
+    [app]="appart"
+    (updateFormEvent)="updateFormAppartement($event)"
+
+    ></app-update-appartement>
+    <br>
+  </div>
+  
